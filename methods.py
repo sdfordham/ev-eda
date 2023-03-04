@@ -79,8 +79,8 @@ def make_dataframe(cars):
     for price in ("country_de", "country_nl", "country_uk"):
         if df[price].isna().all():
             continue
-        match = df[price].str.extract("€(\d+),(\d+)")
-        df[f"{price} (€)"] = (
+        match = df[price].str.extract("[€£](\d+),(\d+)")
+        df[f"{price} (€/£)"] = (
             match[~match.isna().any(axis=1)]
             .agg("".join, axis=1)
             .astype("float64")
