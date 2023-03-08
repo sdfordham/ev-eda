@@ -54,7 +54,6 @@ def process_webpage(res):
                 if class_.lower().startswith("plug"):
                     this_["plug"] = aspect["contents"]
                     break
-            this_[detail] = None
 
         cars_processed.append(this_)
     return cars_processed
